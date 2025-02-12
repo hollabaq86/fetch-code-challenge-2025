@@ -7,8 +7,11 @@ app = Flask(__name__)
 
 receipts = {}
 
-ACCEPTABLE_RECEIPT_KEYS = set(["retailer","purchaseDate","purchaseTime","items","total"])
-ACCEPTABLE_ITEM_KEYS = set(["shortDescription","price"])
+ACCEPTABLE_RECEIPT_KEYS = set(
+    ["retailer", "purchaseDate", "purchaseTime", "items", "total"]
+)
+ACCEPTABLE_ITEM_KEYS = set(["shortDescription", "price"])
+
 
 @app.post("/receipts/process")
 def process():
@@ -20,12 +23,14 @@ def process():
     receipts[receipt.id] = receipt
     return {"id": receipt.id}
 
+
 @app.get("/receipts/<id>/points")
 def get_points(id):
     receipt_id = id
     if receipt_id not in receipts:
         abort(404, description="No receipt found for that ID.")
     return {"points": receipts[receipt_id].points}
+
 
 def validate_request_data(datum: Dict):
     request_keys = set(datum.keys())
@@ -41,6 +46,7 @@ def validate_request_data(datum: Dict):
             return False
             break
     return True
+
 
 def create_app():
     return app
