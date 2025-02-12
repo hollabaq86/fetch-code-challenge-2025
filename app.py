@@ -32,16 +32,14 @@ def validate_request_data(datum: Dict):
     bad_keys = ACCEPTABLE_RECEIPT_KEYS.difference(request_keys)
     if len(bad_keys) > 0:
         return False
-    if "items" in request_keys:
-        if len(datum["items"]) > 0:
-            for item in datum["items"]:
-                request_item_keys = set(item.keys())
-                bad_keys = ACCEPTABLE_ITEM_KEYS.difference(request_item_keys)
-                if len(bad_keys) > 0:
-                    return False
-                    break
-        else:
+    if len(datum["items"]) == 0:
+        return False
+    for item in datum["items"]:
+        request_item_keys = set(item.keys())
+        bad_keys = ACCEPTABLE_ITEM_KEYS.difference(request_item_keys)
+        if len(bad_keys) > 0:
             return False
+            break
     return True
 
 def create_app():
