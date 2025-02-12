@@ -146,7 +146,7 @@ def test_assign_points_counts_retailer_alphanumeric_characters(
         ("3", 81),
     ],
 )
-def test_assign_points_counts_checks_total_whole_number(total, expected_count):
+def test_assign_points_checks_total(total, expected_count):
     datum = {
         "retailer": "Target",
         "purchaseDate": "2022-01-02",
@@ -232,7 +232,7 @@ def test_assign_points_checks_number_of_items(items, expected_count):
         ),
     ],
 )
-def test_assign_points_item_descriptions(items, expected_count):
+def test_assign_points_checks_item_descriptions(items, expected_count):
     datum = {
         "retailer": "Target",
         "purchaseDate": "2022-01-02",
