@@ -1,6 +1,6 @@
 import pytest
-from models.receipt import Receipt
-from models.item import Item
+from src.models.receipt import Receipt
+from src.models.item import Item
 
 
 @pytest.mark.parametrize(

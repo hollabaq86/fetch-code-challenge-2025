@@ -1,10 +1,3 @@
-# make sure we have correct path to import flask app
-import os
-import sys
-
-topdir = os.path.join(os.path.dirname(__file__), "..")
-sys.path.append(topdir)
-
 from app import create_app, validate_request_data  # noqa: E402
 import pytest  # noqa: E402
 

@@ -1,5 +1,5 @@
 from typing import Dict, List
-from models.item import Item
+from src.models.item import Item
 from uuid_utils import uuid7
 
 

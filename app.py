@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import abort, request
-from models.receipt import Receipt
+from src.models.receipt import Receipt
 from typing import Dict
 
 app = Flask(__name__)
